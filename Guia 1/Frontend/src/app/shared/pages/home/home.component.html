@@ -1,0 +1,25 @@
+<div class="container">
+    <h5 class="mb-3">Welcome {{username}}!</h5>
+    <button type="button" (click)="listUsers()" class="btn btn-primary">
+      List Users
+    </button>
+  
+    <button type="button" (click)="registerUser()" class="btn btn-primary" style="margin-left: 10px">
+      Register User
+    </button>
+    
+    <button type="button" (click)="exit()" class="btn btn-danger" style="margin-left: 700px">
+      Exit
+    </button>
+
+    <hr>
+
+    <div *ngIf="list; else register">
+        <app-list-users></app-list-users>
+    </div>
+
+    <ng-template #register>
+        <app-register-user></app-register-user>
+    </ng-template>
+
+  </div>
