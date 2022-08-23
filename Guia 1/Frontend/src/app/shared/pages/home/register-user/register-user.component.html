@@ -23,7 +23,10 @@
         </div>
         <div class="mb-3">
           <label for="inputLevel" class="form-label">Level</label>
-          <input type="text" class="form-control" formControlName="level" id="inputLevel">
+          <select class="form-select" aria-label="Default select example" formControlName="level" id="inputLevel">
+            <option value="0">0 -> Administrator user, write permissions.</option>
+            <option value="1">1 -> Common user, only read permissions.</option>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
