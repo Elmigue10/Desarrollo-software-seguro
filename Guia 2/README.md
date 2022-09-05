@@ -2,6 +2,8 @@ REQUERIMIENTOS:
 
 -Docker
 
+-nodeJs
+
 COMANDOS PARA MONTAR LA BASE DE DATOS MYSQL EN DOCKER:
 
 docker pull mysql

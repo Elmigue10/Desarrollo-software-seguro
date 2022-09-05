@@ -1,0 +1,30 @@
+<h2>Log In</h2>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open Log In Form</button>
+<br>
+<button class="btn btn-lg btn-outline-primary mt-2" (click)="goBack()">Go Back</button>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Log In Form</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formGroup" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="inputUsernameLogin" class="form-label">Username</label>
+          <input type="text" class="form-control" formControlName="username" id="inputUsernameLogin" aria-describedby="emailHelp">
+      </div> 
+          <div class="mb-3">
+            <label for="inputPasswordLogin" class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="inputPasswordLogin">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+    </div>
+</ng-template>
