@@ -3,7 +3,6 @@ package dev.miguel.backend.business.controller;
 import dev.miguel.backend.business.service.UserService;
 import dev.miguel.backend.domain.dto.AuthenticateRequestDto;
 import dev.miguel.backend.domain.dto.UserDto;
-import dev.miguel.backend.domain.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
