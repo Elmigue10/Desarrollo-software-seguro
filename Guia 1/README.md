@@ -21,6 +21,7 @@ use dss;
 create table user(id int not null AUTO_INCREMENT PRIMARY KEY, document VARCHAR(32) NOT NULL, username VARCHAR(32) NOT NULL, email VARCHAR(32) NOT NULL, password VARCHAR(32) NOT NULL, level int NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE user ADD UNIQUE document(document);
+
 ALTER TABLE user ADD UNIQUE username(username);
 
 Ejecución Frontend:

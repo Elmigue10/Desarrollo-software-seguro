@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
-    UserEntity findUserEntityById (Integer id);
+    UserEntity findUserEntityByUserId (Integer id);
     UserEntity findUserEntityByUsername (String username);
 
     @Transactional

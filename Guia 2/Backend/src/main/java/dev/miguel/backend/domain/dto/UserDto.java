@@ -13,8 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDto {
 
-    @JsonProperty("id")
-    private Integer id;
+    @JsonProperty("userId")
+    private Integer userId;
 
     @JsonProperty("document")
     private String document;
@@ -27,6 +27,9 @@ public class UserDto {
 
     @JsonProperty("password")
     private String password;
+
+    @JsonProperty("accion")
+    private String accion;
 
     @JsonProperty("level")
     private Integer level;

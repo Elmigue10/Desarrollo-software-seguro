@@ -43,7 +43,6 @@ public class UserService {
     public void saveUser(UserDto userDto){
         UserEntity user = modelMapper.map(userDto, UserEntity.class);
         user.setPassword(encodeMD5(secretKey, user.getPassword()));
-//        user.setPassword(encryptMD5(user.getPassword()));
         userRepository.save(user);
     }
 
@@ -62,7 +61,7 @@ public class UserService {
     }
 
     public void updateUser(UserDto userDto){
-        UserEntity user = userRepository.findUserEntityById(userDto.getId());
+        UserEntity user = userRepository.findUserEntityByUserId(userDto.getUserId());
         user.setDocument(userDto.getDocument());
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
