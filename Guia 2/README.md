@@ -65,12 +65,12 @@ for each row
 insert into auditoria_users(document_anterior, username_anterior, email_anterior, usuario, modificado, proceso, user_id)
 values (old.document, old.username, old.email, current_user(), now(), 'eliminado', old.user_id);
 
-insert into user(document, username, email, password, level) values 
+<!-- insert into user(document, username, email, password, level) values 
 ("1000133451", "miguel1025", "miguel@email.com", "1234", 0),
 ("1070242094", "johan24", "johan@email.com", "1234", 1),
 ("2971932", "david25", "david@email.com", "1234", 1),
 ("1023948313", "dastisi2012", "dastisi@email.com", "1234", 1),
-("2910342", "stiven09", "stiven@email.com", "1234", 1);
+("2910342", "stiven09", "stiven@email.com", "1234", 1); -->
 
 update user set username='miguel99' where document = '1000133451';
 
