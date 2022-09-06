@@ -42,6 +42,7 @@ public class UserService {
 
     public void saveUser(UserDto userDto){
         UserEntity user = modelMapper.map(userDto, UserEntity.class);
+        user.setAccion("insertado");
         user.setPassword(encodeMD5(secretKey, user.getPassword()));
         userRepository.save(user);
     }

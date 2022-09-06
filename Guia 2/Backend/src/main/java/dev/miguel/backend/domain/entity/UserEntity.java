@@ -28,8 +28,8 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
-    @Column(name= "accion")
-    private String accion;
+    @Column(name= "accion", columnDefinition = "varchar(20) default 'insertado'")
+    private String accion = "insertado";
 
     @Column(name = "level")
     private Integer level;

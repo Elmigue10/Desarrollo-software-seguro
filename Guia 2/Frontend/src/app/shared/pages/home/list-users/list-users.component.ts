@@ -35,14 +35,14 @@ export class ListUsersComponent implements OnInit {
         .subscribe(
           data => {
           this.users=data;
-          console.log("User: ",data);
+          console.log("Users: ",data);
         })
       } else {
         this.service.findAllUsersEncrypted()
         .subscribe(
           data => {
           this.users=data;
-          console.log("User: ", data);
+          console.log("Users: ", data);
         })
       }
     }, 100);

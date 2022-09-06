@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SingupComponent } from './auth/singup/singup.component';
 import { RegisterUserComponent } from './shared/pages/home/register-user/register-user.component';
 import { ListUsersComponent } from './shared/pages/home/list-users/list-users.component';
+import { AuditUsersComponent } from './shared/pages/home/audit-users/audit-users.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ListUsersComponent } from './shared/pages/home/list-users/list-users.co
     SingupComponent,
     RegisterUserComponent,
     ListUsersComponent,
+    AuditUsersComponent,
 
   ],
   imports: [

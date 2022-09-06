@@ -1,6 +1,6 @@
 export interface User {
 
-    id:number;
+    userId:number;
     document:string;
     username:string;
     email:string;

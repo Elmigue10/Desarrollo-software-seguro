@@ -8,18 +8,26 @@
       Register User
     </button>
     
+    <button type="button" (click)="auditUser()" class="btn btn-primary" style="margin-left: 10px">
+      Audit Users
+    </button>
+
     <button type="button" (click)="exit()" class="btn btn-danger" style="margin-left: 700px">
       Exit
     </button>
 
     <hr>
 
-    <div *ngIf="list; else register">
+    <div *ngIf="list else registerOrAudit">
         <app-list-users></app-list-users>
     </div>
-
-    <ng-template #register>
-        <app-register-user></app-register-user>
+    <ng-template #registerOrAudit>
+        <div *ngIf="listAuditUser else register">
+          <app-audit-users></app-audit-users>
+        </div>
     </ng-template>
+    <ng-template #register>
+      <app-register-user></app-register-user>
+  </ng-template>
 
   </div>

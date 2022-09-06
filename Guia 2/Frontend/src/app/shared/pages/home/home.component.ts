@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
 
   username = localStorage.getItem('username');
   list:boolean = true;
+  listAuditUser:boolean = false;
 
   constructor(public router:Router) { }
 
@@ -18,9 +19,16 @@ export class HomeComponent implements OnInit {
 
   listUsers():any{
     this.list = true;
+    this.listAuditUser = false;
   }
   
   registerUser():any{
+    this.list = false;
+    this.listAuditUser = false;
+  }
+
+  auditUser():any{
+    this.listAuditUser = true;
     this.list = false;
   }
 
