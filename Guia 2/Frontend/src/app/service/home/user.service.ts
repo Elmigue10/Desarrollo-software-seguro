@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from 'src/app/shared/model/user';
 import { Observable } from 'rxjs';
 
@@ -22,6 +22,16 @@ export class UserService {
 
   findUserByUsername(username:string):Observable<any>{
     return this.http.get<User>(`${this.API}/${username}`);
+  }
+
+  updateUser(user:User){
+    return this.http.put<User>(this.API, user);
+  }
+
+  deleteUser(user:User){
+    let params = new HttpParams();
+    params = params.append("document", user.document);
+    return this.http.delete<User>(this.API, { params: params});
   }
 
 }
