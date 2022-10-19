@@ -1,0 +1,32 @@
+﻿@model List<Detalle>
+@{
+    ViewData["Title"] = "List Data";
+}
+
+<h2>Detalle Venta</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>FactNum</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Vendedor</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FactNum</td>
+                <td>@item.Producto</td>
+                <td>@item.Cantidad</td>
+                <td>@item.Precio</td>
+                <td>@item.Maestro.Vendedor</td>
+                <td>@item.Maestro.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>

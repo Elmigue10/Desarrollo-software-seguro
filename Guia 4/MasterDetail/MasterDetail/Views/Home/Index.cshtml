@@ -1,0 +1,227 @@
+﻿@model global::MasterDetail.Models.Maestro
+
+@*This is for jquery*@
+<script src="../../Scripts/jquery-1.7.2.js" type="text/javascript"></script>
+@*This is for jquery UI, for Calender control*@
+<script src="../../Scripts/jquery-ui-1.8.24.js" type="text/javascript"></script>
+@*This is for JSON*@
+<script src="../../Scripts/json2.js" type="text/javascript"></script>
+@*These are for DataTables*@
+<script src="../../Scripts/DataTables/jquery.dataTables.js"
+        type="text/javascript"></script>
+<script src="../../Scripts/DataTables/dataTables.TableTools.js"
+        type="text/javascript"></script>
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Create</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"
+        type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"
+        type="text/javascript"></script>
+<script type="text/javascript">
+     // Esta función es utilizada para
+     // para borra la filas seleccionadas de la tabla DetalleVta
+     // set deleted item to Edit text Boxes
+     function DeleteRow() {
+
+     // Aquí se utilizada elplugin DataTables.TableTools para conseguir las filas
+    seleccionadas
+     var oTT = TableTools.fnGetInstance('tbl'); // Onbtiene la instancia de la
+    Tabla
+     var sRow = oTT.fnGetSelected(); // Se seleciona el item de la Tabla
+     // Coloca la fila borrada en las cajas de texto
+     $('#Producto').val($.trim(sRow[0].cells[0].innerHTML.toString()));
+     $('#Cantidad').val(jQuery.trim(sRow[0].cells[1].innerHTML.toString()));
+     $('#Preciou').val($.trim(sRow[0].cells[2].innerHTML.toString()));
+     $('.tbl').dataTable().fnDeleteRow(sRow[0]);
+     }
+    $(document).ready(function () {
+        // here i have used datatables.js (jQuery Data Table)
+        $('.tbl').dataTable({
+            "sDom": 'T<"clear">lfrtip',
+            "oTableTools": {
+                "aButtons": [],
+                "sRowSelect": "single"
+            },
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": false,
+            "bInfo": false
+        });
+        $('#Fecha').datepicker();
+        var oTable = $('.tbl').dataTable();
+    });
+    // Funció para adicionar un item a lista de la tabla
+    function Add() {
+        // Adiciona item a la tabla
+        $('.tbl').dataTable().fnAddData([$('#Producto').val(), $('#Cantidad').val(),
+        $('#Preciou').val()]);
+        // Making Editable text empty
+        $('#Producto').val("")
+        $('#Cantidad').val("")
+        $('#Preciou').val("")
+    }
+    //Esta función es usada para enviar data(JSON Data) al controlador
+    MaestroDetalle
+    function Guarda_venta() {
+        // Paso 1: Lee la vista de datos y Crea un onjeto JSON
+        // Crea Objeto Detalle Json
+        var VDetalle = {
+            "FactNum": "", "Producto": "", "Cantidad": "", "Preciou":
+                ""
+        };
+        // Crea Objeto Maestro Json
+        var VMaestro = {
+            "FactNum": "", "Referencia": "", "Vendedor": "", "Fecha":
+                "", "DetalleVta": []
+        };
+        // Coloca Maestro valor principal
+        VMaestro.FactNum = $("#FactNum").val();
+        VMaestro.Referencia = $("#Referencia").val();
+        VMaestro.Vendedor = $("#Vendedor").val();
+        VMaestro.Fecha = $("#Fecha").val();
+     // Obtener tabla de datos desde donde se ha podido recuperar los registros
+    de Detalle
+        var oTable = $('.tbl').dataTable().fnGetData();
+        for (var i = 0; i < oTable.length; i++) {
+     // Si esta visita es para editar entonces será leído FactNum de Campo
+    que se encuentra oculto
+            if ($('h2').text() == "Edit") {
+                VDetalle.FactNum = $('#FactNum').val();
+            }
+            else {
+                VDetalle.FactNum = 0;
+            }
+            // Coloca en detalle valor individual
+            VDetalle.Producto = oTable[i][0];
+            VDetalle.Cantidad = oTable[i][1];
+            VDetalle.Preciou = oTable[i][2];
+            // adiciona a Maestro.Detalle el List Item
+            VMaestro.DetalleVta.push(VDetalle);
+
+            VDetalle = { "Producto": "", "Cantidad": "", "Preciou": "" };
+        }
+        // Paso 1: Termina Aquí
+        // Paso 2: Ajax Post
+        // Aquí se utiliza ajax post para guardad/actualizar información
+        $.ajax({
+            url: '/MaestroDetalle/Create',
+            data: JSON.stringify(VMaestro),
+            type: 'POST',
+            contentType: 'application/json;',
+            dataType: 'json',
+            success: function (result) {
+                if (result.Success == "1") {
+                    window.location.href = "/MaestroDetalle/index";
+                }
+                else {
+                    alert(result.ex);
+                }
+            }
+        });
+    }
+    </script>
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"
+        type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"
+        type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Maestro</legend>
+
+        @if (Model != null)
+        {
+
+            <input type="hidden" id="FactNum" name="FactNum" value="@Model.FactNum" />
+        }
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Referencia)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Referencia)
+            @Html.ValidationMessageFor(model => model.Referencia)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fecha)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fecha)
+            @Html.ValidationMessageFor(model => model.Fecha)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Vendedor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Vendedor)
+            @Html.ValidationMessageFor(model => model.Vendedor)
+        </div>
+    </fieldset>
+    <br />
+
+    <fieldset>
+        <legend>Add Item</legend>
+        <label>Producto :</label>
+        @Html.TextBox("Producto")
+        <label>Cantidad :</label>
+        @Html.TextBox("Cantidad")
+        <label>Precio Venta :</label>
+        @Html.TextBox("Preciou")
+        <input type="button" value="Add" onclick="Add()" />
+        <br />
+        <br />
+        <table class="tbl" id="tbl">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Venta</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model.DetalleVta)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayTextFor(i => item.Producto)
+                            </td>
+                            <td>
+                                @Html.DisplayTextFor(i => item.Cantidad)
+                            </td>
+                            <td>
+                                @Html.DisplayTextFor(i => item.Precio)
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+        <br />
+        <input type="button" value="Delete Selected Row" onclick="DeleteRow()" />
+    </fieldset>
+    <input type="button" value="Guarda Venta" onclick="Guarda_venta()" />
+
+
+}
+<div>
+    @Html.ActionLink("Back to List", "Privacy")
+</div>
+@*@{
+//    ViewData["Title"] = "Home Page";
+//}*/
+
+//<div class="text-center">
+//    <h1 class="display-4">Welcome</h1>
+//    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+//</div>*@
