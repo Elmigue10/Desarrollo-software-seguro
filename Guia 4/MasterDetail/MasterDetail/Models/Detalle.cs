@@ -9,11 +9,18 @@ namespace MasterDetail.Models
         public int FactNum { get; set; }
 
         [Key, Column(Order = 1)]
-        public string Producto { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int DetalleNum { get; set; }
 
-        public int Cantidad { get; set; }
+        public string Productos { get; set; }
 
-        public decimal Precio { get; set; }
+        public string Cantidades { get; set; }
+
+        public string Precios { get; set; }
+
+        public decimal Total { get; set; }
+
+        public int IdMaster { get; set; }
 
         public virtual Maestro? Maestro { get; set; }
 

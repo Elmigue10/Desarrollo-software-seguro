@@ -1,6 +1,28 @@
-﻿@{
-    ViewData["Title"] = "List Data";
+﻿@model List<Maestro>
+@{
+    ViewData["Title"] = "List Masters";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>List the Data.</p>
+<h2>Detalle Masters</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Rol</th>
+            <th>Vendedor</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FactNum</td>
+                <td>@item.Referencia</td>
+                <td>@item.Vendedor</td>
+                <td>@item.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>

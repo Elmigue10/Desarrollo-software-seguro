@@ -8,10 +8,11 @@
 <table class="table">
     <thead>
         <tr>
-            <th>FactNum</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
+            <th>Id</th>
+            <th>Productos</th>
+            <th>Cantidades</th>
+            <th>Precios</th>
+            <th>Total</th>
             <th>Vendedor</th>
             <th>Fecha</th>
         </tr>
@@ -20,10 +21,11 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.FactNum</td>
-                <td>@item.Producto</td>
-                <td>@item.Cantidad</td>
-                <td>@item.Precio</td>
+                <td>@item.DetalleNum</td>
+                <td>@item.Productos</td>
+                <td>@item.Cantidades</td>
+                <td>@item.Precios</td>
+                <td>@item.Total</td>
                 <td>@item.Maestro.Vendedor</td>
                 <td>@item.Maestro.Fecha</td>
             </tr>
