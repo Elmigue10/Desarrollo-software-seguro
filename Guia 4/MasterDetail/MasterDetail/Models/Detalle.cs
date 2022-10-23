@@ -22,6 +22,8 @@ namespace MasterDetail.Models
 
         public int IdMaster { get; set; }
 
+        public DateTime Fecha { get; set; }
+
         public virtual Maestro? Maestro { get; set; }
 
     }

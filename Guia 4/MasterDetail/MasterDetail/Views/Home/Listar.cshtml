@@ -12,6 +12,7 @@
             <th>Rol</th>
             <th>Vendedor</th>
             <th>Fecha</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,10 @@
                 <td>@item.Referencia</td>
                 <td>@item.Vendedor</td>
                 <td>@item.Fecha</td>
+                <td>
+                    <a class="btn btn-primary btn-sm">Update</a>
+                    <a asp-action="DeleteMaster" asp-controller="Home" class="btn btn-danger btn-sm" asp-route-FactNum="@item.FactNum">Delete</a>
+                </td>
             </tr>
         }
     </tbody>

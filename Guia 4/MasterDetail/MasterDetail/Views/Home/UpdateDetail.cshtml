@@ -1,0 +1,35 @@
+﻿@model global::MasterDetail.Models.Detalle
+@{
+    ViewData["Title"] = "Update Detail";
+}
+
+<h2>Update Detail</h2>
+
+<legend>Update Detail</legend>
+<form asp-action="UpdateDetail" asp-controller="Home" method="post">
+    <input asp-for="FactNum" type="hidden" class="form-control" readonly>
+    <div class="mb-3">
+        <label class="form-label">Numero Factura</label>
+        <input asp-for="DetalleNum" type="text" class="form-control" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Productos</label>
+        <input asp-for="Productos" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cantidades</label>
+        <input asp-for="Cantidades" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Precios</label>
+        <input asp-for="Precios" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Seller Id</label>
+        <input asp-for="IdMaster" type="number" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
