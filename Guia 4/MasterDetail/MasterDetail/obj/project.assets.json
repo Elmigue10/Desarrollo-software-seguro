@@ -10514,19 +10514,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Miguel\\.nuget\\packages\\": {}
+    "C:\\Users\\migue\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Miguel\\Documents\\UMB\\Desarrollo de software seguro\\Guia 4\\MasterDetail\\MasterDetail\\MasterDetail.csproj",
+      "projectUniqueName": "C:\\Users\\migue\\Documentos\\UMB\\Desarrollo-software-seguro\\Guia 4\\MasterDetail\\MasterDetail\\MasterDetail.csproj",
       "projectName": "MasterDetail",
-      "projectPath": "C:\\Users\\Miguel\\Documents\\UMB\\Desarrollo de software seguro\\Guia 4\\MasterDetail\\MasterDetail\\MasterDetail.csproj",
-      "packagesPath": "C:\\Users\\Miguel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Miguel\\Documents\\UMB\\Desarrollo de software seguro\\Guia 4\\MasterDetail\\MasterDetail\\obj\\",
+      "projectPath": "C:\\Users\\migue\\Documentos\\UMB\\Desarrollo-software-seguro\\Guia 4\\MasterDetail\\MasterDetail\\MasterDetail.csproj",
+      "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\migue\\Documentos\\UMB\\Desarrollo-software-seguro\\Guia 4\\MasterDetail\\MasterDetail\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Miguel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10592,7 +10592,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
